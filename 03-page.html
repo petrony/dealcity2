@@ -99,8 +99,24 @@
     <script src="./js/site.js"></script>
     <script>
       $(document).ready(function() {
+        function formatPhone (phone) {
+          if (!phone.id) {
+            return phone.text;
+          }
+          var $phone = $(
+            '<span>'+phone.text+'<a class="removeUserPhone"><img src="./images/trash.svg" /> Удалить</a></span>'
+          );
+          return $phone;
+        };
+      
         $('.select').select2({
-          width: "100%"
+          width: "100%",
+          tags: true
+        })
+        $('.addUserPhone').select2({
+          width: "100%",
+          //- dropdownCssClass: '',
+          templateResult: formatPhone
         })
       })
       $(function() {

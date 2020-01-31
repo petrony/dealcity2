@@ -67,15 +67,17 @@
             </div>
             <div class="form-group">
               <label>Пользователи</label><br>
-              <select class="select" name="phone[]" multiple="multiple" data-placeholder="+7 (___) ___-__-__">
-                <option value="1">+7 (962) 121-88-22</option>
-                <option value="2">+7 (962) 121-88-22</option>
-                <option value="3">+7 (962) 121-88-22</option>
-                <option value="4">+7 (962) 121-88-22</option>
-                <option value="5">+7 (962) 121-88-22</option>
-                <option value="6">+7 (962) 121-88-22</option>
-                <option value="7">+7 (962) 121-88-22</option>
-              </select>
+              <div class="form-add-user">
+                <select class="addUserPhone" name="phone[]" multiple="multiple" data-placeholder="+7 (___) ___-__-__">
+                  <option value="1">+7 (962) 121-88-22</option>
+                  <option value="2">+7 (962) 121-88-23</option>
+                  <option value="3">+7 (962) 121-88-23</option>
+                  <option value="4">+7 (962) 121-88-24</option>
+                  <option value="5">+7 (962) 121-88-25</option>
+                  <option value="6">+7 (962) 121-88-26</option>
+                  <option value="7">+7 (962) 121-88-27</option>
+                </select><a id="btn-add-user" href="#"><i><img src="images/plus.svg" alt="plus"/></i><span>Добавить</span></a>
+              </div>
             </div>
           </div>
         </div><br><br>
@@ -98,8 +100,24 @@
     <script src="./js/site.js"></script>
     <script>
       $(document).ready(function() {
+        function formatPhone (phone) {
+          if (!phone.id) {
+            return phone.text;
+          }
+          var $phone = $(
+            '<span>'+phone.text+'<a class="removeUserPhone"><img src="./images/trash.svg" /> Удалить</a></span>'
+          );
+          return $phone;
+        };
+      
         $('.select').select2({
-          width: "100%"
+          width: "100%",
+          tags: true
+        })
+        $('.addUserPhone').select2({
+          width: "100%",
+          //- dropdownCssClass: '',
+          templateResult: formatPhone
         })
       })
       $(function() {
