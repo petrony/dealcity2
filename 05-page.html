@@ -7,6 +7,7 @@
     <meta content="" name="description">
     <meta content="telephone=no" name="format-detection">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, user-scalable=no">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/css/select2.min.css" attr>
     <link rel="stylesheet" href="./css/bootstrap.min.css"/>
     <link rel="stylesheet" href="./css/jquery.dataTables.min.css"/>
     <link rel="stylesheet" href="./css/site.min.css"/>
@@ -32,6 +33,55 @@
     <div class="container body-content">
       <h1 class="page-title">Добавление списка рассылки</h1>
       <hr>
+      <form action="#">
+        <div class="row">
+          <div class="col-md-5">
+            <div class="form-group">
+              <label>Название</label>
+              <input class="form-control" type="text" placeholder="Введите название">
+            </div>
+            <div class="form-group">
+              <label><strong>Сеть</strong></label>
+              <select class="form-control select" name="nets[]" multiple="multiple" data-placeholder="Выберите сеть">
+                <option value="0">Спосок 1</option>
+                <option value="1">Спосок 2</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Теги</label>
+              <select class="form-control select" name="tags[]" multiple="multiple" data-placeholder="Введите теги">
+                <option value="0">Старше 18</option>
+                <option value="1">Зеленоград 18+</option>
+                <option value="1">С детьми</option>
+                <option value="1">Все женщины москвы</option>
+              </select>
+            </div>
+          </div>
+          <div class="col-md-5">
+            <div class="form-group">
+              <label for="ch">
+                <input id="ch" type="checkbox" name="ch" checked>
+                
+                <span>Добавить пользователей вручную</span>
+              </label>
+            </div>
+            <div class="form-group">
+              <label>Пользователи</label><br>
+              <select class="select" name="phone[]" multiple="multiple" data-placeholder="+7 (___) ___-__-__">
+                <option value="1">+7 (962) 121-88-22</option>
+                <option value="2">+7 (962) 121-88-22</option>
+                <option value="3">+7 (962) 121-88-22</option>
+                <option value="4">+7 (962) 121-88-22</option>
+                <option value="5">+7 (962) 121-88-22</option>
+                <option value="6">+7 (962) 121-88-22</option>
+                <option value="7">+7 (962) 121-88-22</option>
+              </select>
+            </div>
+          </div>
+        </div><br><br>
+        <button class="btn btn-primary" type="submit">Сохранить</button><br><br>
+      </form>
+      <hr>
       <footer>
         <p>&copy; DealCity - 2019</p>
       </footer>
@@ -44,8 +94,14 @@
     <script src="./js/plugins/buttons.html5.min.js"></script>
     <script src="./js/plugins/dataTables.buttons.min.js"></script>
     <script src="./js/plugins/jszip.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/js/select2.min.js"></script>
     <script src="./js/site.js"></script>
     <script>
+      $(document).ready(function() {
+        $('.select').select2({
+          width: "100%"
+        })
+      })
       $(function() {
       $('.datatable').DataTable({
       order: [

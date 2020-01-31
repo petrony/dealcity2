@@ -7,6 +7,7 @@
     <meta content="" name="description">
     <meta content="telephone=no" name="format-detection">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, user-scalable=no">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/css/select2.min.css" attr>
     <link rel="stylesheet" href="./css/bootstrap.min.css"/>
     <link rel="stylesheet" href="./css/jquery.dataTables.min.css"/>
     <link rel="stylesheet" href="./css/site.min.css"/>
@@ -37,7 +38,15 @@
           <div class="col-md-4">
             <div class="form-group">
               <label><strong>Номер телефона</strong></label>
-              <input class="form-control" type="text" placeholder="+7 (___) ___-__-__">
+              <select class="select" name="phone[]" data-placeholder="+7 (___) ___-__-__">
+                <option value="1">+7 (962) 121-88-22</option>
+                <option value="2">+7 (962) 121-88-23</option>
+                <option value="3">+7 (962) 121-88-24</option>
+                <option value="4">+7 (962) 121-88-25</option>
+                <option value="5">+7 (962) 121-88-26</option>
+                <option value="6">+7 (962) 121-88-27</option>
+                <option value="7">+7 (962) 121-88-28</option>
+              </select>
             </div>
             <div class="form-group">
               <label><strong>Ссылка</strong></label>
@@ -86,8 +95,14 @@
     <script src="./js/plugins/buttons.html5.min.js"></script>
     <script src="./js/plugins/dataTables.buttons.min.js"></script>
     <script src="./js/plugins/jszip.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/js/select2.min.js"></script>
     <script src="./js/site.js"></script>
     <script>
+      $(document).ready(function() {
+        $('.select').select2({
+          width: "100%"
+        })
+      })
       $(function() {
       $('.datatable').DataTable({
       order: [
